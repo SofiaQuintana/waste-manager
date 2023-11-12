@@ -115,7 +115,7 @@ body{
     border: 1px solid #ccc;
     border-radius: 3px; 
 }
-.wrapper .filtrado .btn{
+.btn{
     margin-top: auto;
     background-color: #0a3d62;
     color: #fff;
@@ -125,8 +125,14 @@ body{
     margin-left: 10px;
     display: inline-block;
 }
-.wrapper .registro {
-    margin: 50px auto 0px auto; 
+.wrapper .registrobtn {
+    margin: 50px auto 0px 1172px;
+    width: 13.5%;
+    background-color: #60a3bc;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: auto;
 }
 
 /*TABLA*/
@@ -157,6 +163,5 @@ body{
     background-color: #3c6382;
     border: 1px solid #fff;
 }
-
-
+ /*Registro empleado*/
 

@@ -29,8 +29,8 @@
                 <li><a href="/resources//views/Reportes.php">
                         <span class="item">Reportes</span>
                     </a></li>
-                <li><a href="#">
-                        <span class="item">2</span>
+                <li><a href="/resources//views//RegistroEmpleado.php">
+                        <span class="item">Registras empleado</span>
                     </a></li>
                 <li><a href="#">
                         <span class="item">3</span>
@@ -45,8 +45,8 @@
                 </div>
             </div>
         </div>
-        <div class="registro">
-            <input type="submit" value="Ingresar Nuevo" src="">
+        <div class="registrobtn">
+            <input type="submit" value="Ingresar Nuevo" class="btn" src=>
         </div>
         <div class="tablas">
             <table>
