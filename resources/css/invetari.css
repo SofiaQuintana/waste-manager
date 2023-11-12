@@ -97,6 +97,34 @@ body{
 .wrapper .section .top_navbar .hamburger a#logout {
     margin-left: auto; 
 }
+/*filtrado*/
+.wrapper .filtrado{
+    margin: 50px auto 0px auto;
+    width: 55%;
+    background-color: #60a3bc;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.wrapper .filtrado .form-control {
+    width: 40%; 
+    padding: 10px; 
+    margin: 5px 0;
+    margin-left: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 3px; 
+}
+.wrapper .filtrado .btn{
+    margin-top: auto;
+    background-color: #0a3d62;
+    color: #fff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    display: inline-block;
+}
 /*TABLA*/
 .wrapper .tablas table{
     margin: 50px auto 0px auto;
@@ -125,4 +153,6 @@ body{
     background-color: #3c6382;
     border: 1px solid #fff;
 }
+
+
 
