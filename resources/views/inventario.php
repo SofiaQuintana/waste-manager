@@ -45,6 +45,9 @@
                 </div>
             </div>
         </div>
+        <div class="registro">
+            <input type="submit" value="Ingresar Nuevo" src="">
+        </div>
         <div class="tablas">
             <table>
                 <thead>
