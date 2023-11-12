@@ -6,7 +6,7 @@ enum UserRole {
     case Manager;
     case Operator;
     case WasteClassifier;
-    case Delivery;
+    case Seller;
     case User;
     
 }
