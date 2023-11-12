@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Enums\RoleEnum;
+use App\Enums\UserRole as RoleEnum;
 use App\Models\WasteIncome;
 use App\Models\Conversions;
 use App\Models\Sells;
