@@ -29,8 +29,8 @@
                 <li><a href="/resources//views/Reportes.php">
                         <span class="item">Reportes</span>
                     </a></li>
-                <li><a href="#">
-                        <span class="item">2</span>
+                    <li><a href="/resources//views//RegistroEmpleado.php">
+                        <span class="item">Registras empleado</span>
                     </a></li>
                 <li><a href="#">
                         <span class="item">3</span>

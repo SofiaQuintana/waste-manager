@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes</title>
+    <title>Registro Empleados</title>
     <link rel="stylesheet" href="/resources/css/invetari.css">
+    <link rel="stylesheet" href="/resources/css/registro.css">
 
 
 </head>`
@@ -45,47 +46,42 @@
                 </div>
             </div>
         </div>
+        <div class="Empleado">
+            <form action="">
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Nombre" name="nombre" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Apellido" name="apellido" required>
+                </div>
+                <div class="input-field">
 
-        <div class="filtrado">
-                <form action="">
-                    <div class="row">
-                            <input type="date" name="fecha_ingreso" class="form-control" placeholder="Fecha de Inicio" required>
-                            <input type="date" name="fechaFin" class="form-control" placeholder="Fecha Final" required>
-                            <input type="submit" value="Filtrar" class="btn">
-                    </div>
-                </form>
+                    <i class="fa-solid fa-user-secret"></i>
+                    <input type="text" placeholder="Username" name="username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="text" placeholder="Password" name="password" required>
+                </div>
+                <div class="Roles">
+                    <h2>Role: </h2>
+                    <select name="role" id="role" class="custom-select">
+                        <option value="manager">Manager</option>
+                        <option value="operador">Operador</option>
+                        <option value="vendedor">Vendedor</option>
+                    </select>
+                </div>
+
+                <div class="btn-field">
+                    <button id="Cancel" type="button">Cancelar</button>
+                    <button id="signUp" type="button"> Registrar</button>
+                </div>
+            </form>
         </div>
-        <div class="tablas">
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Nombre</th>
-                        <th>Monto</th>
-                        <th>fecha</th>
-                    </tr>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Chatarra</td>
-                        <td>5kg</td>
-                        <td>2023-05-02</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Bolsas</td>
-                        <td>1kg</td>
-                        <td>2023-01-03</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>botellas</td>
-                        <td>2kg</td>
-                        <td>2023-02-02</td>
-                    </tr>
-                </tbody>
-                </thead>
-            </table>
+        <div class="imagen">
+            <img src="https://www.traperosdeemaus.org/mini-slider/reciclaje/reciclaje-general.png" alt="">
         </div>
     </div>
 </body>
