@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\InvetaryController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['guest'])->group(function () {
+    // all the routes that need to be shown when the user is not logged in
+    Route::get('/', [LoginController::class, 'showLoginForm']);
 });
 
-Route::get('inventary', [InvetaryController::class, 'see']);
+Route::middleware(['auth'])->group(function () {
+   // all the routes that need to be shown when the user is logged in
+});
