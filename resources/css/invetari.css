@@ -125,10 +125,6 @@ body{
     margin-left: 10px;
     display: inline-block;
 }
-.wrapper .registro {
-    margin: 50px auto 0px auto; 
-}
-
 /*TABLA*/
 .wrapper .tablas table{
     margin: 50px auto 0px auto;
@@ -157,6 +153,3 @@ body{
     background-color: #3c6382;
     border: 1px solid #fff;
 }
-
-
-
