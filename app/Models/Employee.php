@@ -63,4 +63,8 @@ class Employee extends Authenticatable
     {
         return $this->hasMany(Sells::class);
     }   
+
+    public function getAuthPassword(){
+        return $this->password;
+    }
 }
