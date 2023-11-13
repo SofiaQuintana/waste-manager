@@ -15,7 +15,8 @@
         <img src="https://www.simlevante.com/wp-content/uploads/2022/10/waste-management-edited.png" >
     </div>
     <div class="login-content">
-        <form method="post" action="">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
             <img src="https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG-Picture.png" alt="">
             <h2 class="title">Bienvenido</h2>
             <div class="input-div one">
@@ -24,7 +25,7 @@
                 </div>
                 <div class="div">
                     <h5>Usuario</h5>
-                    <input type="text" id="usuario" class="input" name="usuario">
+                    <input type="text" id="username" class="input" name="username">
                 </div>
             </div>
             <div class="input-div pass">
@@ -36,12 +37,13 @@
                     <input type="password" id="input" class="input" name="password">
                 </div>
             </div>
-            <div class="view">
-                <div class="fas fa-eye verPassword" onclick="vista()" id="verPassword"></div>
-            </div>
-            <input type="submit" name="btningresar" class="btn" value="INICIAR SESION">
+            @if($errors->any())
+                <span class="help-block"> {{ $errors->first() }} </span>
+            @endif
+            <button type="submit" class="btn">INICIAR SESION</button>
         </form>
     </div>
  </div>    
+ @include('layouts.scripts')
 </body>
 </html>
