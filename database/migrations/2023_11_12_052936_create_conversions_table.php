@@ -17,9 +17,9 @@ return new class extends Migration
             $table->integer('recycled_amount');
             $table->date('date');
             // Foreign key reference to waste inventory table
-            $table->foreignId('waste_inventory_id')->constrained('waste_inventory');
+            $table->foreignId('waste_inventory_id')->constrained('waste_inventories');
             // Foreign key reference to recycled waste inventory table
-            $table->foreignId('recycled_waste_inventory_id')->constrained('recycled_waste_inventory');
+            $table->foreignId('recycled_waste_inventory_id')->constrained('recycled_waste_inventories');
             // Foreign key reference to employees table
             $table->foreignId('employee_id')->constrained('employees');
             $table->timestamps();
