@@ -100,15 +100,15 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
-        //aqui toca ahora
         $employeeData = request()->except(['_token', '_method']);
-        Employee::where('id', '=', $id)->update($employeeData);
+        Employee::where('id', $id)->update($employeeData);
 
-        
+        $employee = Employee::findOrFail($id);
 
+        //return view('employee.edit', compact('employee'));
+        //return view('employee.index');
+        return redirect()->route('employee.index');
 
-
-        
         
     }
 
