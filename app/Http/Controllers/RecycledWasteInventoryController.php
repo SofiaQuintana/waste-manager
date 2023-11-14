@@ -36,9 +36,9 @@ class RecycledWasteInventoryController extends Controller
             'amount' => 'required||integer',
         ]);
 
-        RecycledWasteInventory::create($request->all());
+        //RecycledWasteInventory::create($request->all());
 
-        return redirect()->route('recycled-waste-inventory.index');
+        //return redirect()->route('recycled-waste-inventory.index');
 
         $campos=[
             'name' => 'required',
@@ -52,20 +52,35 @@ class RecycledWasteInventoryController extends Controller
 
         $this->validate($request, $campos, $message);
 
+        //$existingInventory = RecycledWasteInventory::where('name', $request->input('name'))->first();
+
+        /**if($existingInventory){
+            //redirige a la vista de detalles
+            return redirect()->route('recycled-waste-inventory.show', $existingInventory->id);
+        } */
+
+
         $recycled_waste_inventory = new RecycledWasteInventory();
         $recycled_waste_inventory->name = $request->input('name');
         $recycled_waste_inventory->amount= $request->input('amount');
         $recycled_waste_inventory->save();
 
-        return redirect('recycled-waste-inventory.index');
+        //RecycledWasteInventory::create($request->all());
+
+        return redirect()->route('recycled-waste-inventory.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
         //
+
+
+        $recycledWasteInventory = RecycledWasteInventory::findOrFail($id);
+        return view('recycled-waste-inventory.show', compact('recycledWasteInventory'));
+
     }
 
     /**
