@@ -19,7 +19,7 @@ return new class extends Migration
             // Foreign key reference to employees table
             $table->foreignId('employee_id')->constrained('employees');
             // Foreign key reference to recycled waste inventory table
-            $table->foreignId('recycled_waste_inventory_id')->constrained('recycled_waste_inventory');
+            $table->foreignId('recycled_waste_inventory_id')->constrained('recycled_waste_inventories');
             $table->timestamps();
         });
     }

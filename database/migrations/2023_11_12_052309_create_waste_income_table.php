@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('waste_income', function (Blueprint $table) {
+        Schema::create('waste_incomes', function (Blueprint $table) {
             $table->id();
             $table->decimal('cost', 10, 2);
             $table->integer('amount');
@@ -20,7 +20,7 @@ return new class extends Migration
             // Foreign key reference to employees table
             $table->foreignId('employee_id')->constrained('employees');
             // Foreign key reference to waste inventory table
-            $table->foreignId('waste_inventory_id')->constrained('waste_inventory');
+            $table->foreignId('waste_inventory_id')->constrained('waste_inventories');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('waste_income');
+        Schema::dropIfExists('waste_incomes');
     }
 };

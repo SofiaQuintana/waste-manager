@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recycled_waste_inventory', function (Blueprint $table) {
+        Schema::create('recycled_waste_inventories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->integer('amount');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recycled_waste_inventory');
+        Schema::dropIfExists('recycled_waste_inventories');
     }
 };
