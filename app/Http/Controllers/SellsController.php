@@ -6,6 +6,8 @@ use App\Models\RecycledWasteInventory;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Models\Sells;
+use Illuminate\Support\Facades\Session;
+
 
 class SellsController extends Controller
 {
@@ -14,9 +16,17 @@ class SellsController extends Controller
      */
     public function index()
     {
-        //$data['sells'] = Sells::all();
+        $employeeData = $this->getEmployeeData();
+        $sells = Sells::all();
+        // dd($sells);
         $data['sells'] = Sells::with(['employee', 'recycledWasteInventory'])->get();
-        return view ('sell.index', $data);
+        return view ('sell.index', compact('sells','employeeData'));
+    }
+
+    private function getEmployeeData()
+    {
+        $employeeData = Session::get('employeeData');
+        return $employeeData;
     }
 
     /**
