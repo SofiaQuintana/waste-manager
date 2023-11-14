@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Enums\UserRole;
+use Illuminate\Support\Facades\Session;
 
 class EmployeeController extends Controller
 {
@@ -20,7 +20,14 @@ class EmployeeController extends Controller
         foreach($data['employees'] as $employee){
             $employee->roleDescription = UserRole::getDescription($employee->role);
         }
-        return view('employee.index', $data);
+        $employeeData = $this->getEmployeeData();
+        return view('employee.index', $data, compact('employeeData'));
+    }
+
+    private function getEmployeeData()
+    {
+        $employeeData = Session::get('employeeData');
+        return $employeeData;
     }
 
     /**
@@ -28,9 +35,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //return view('employee.create');
-
-        return view ('employee.create');
+        $employeeData = $this->getEmployeeData();
+        return view ('employee.create', compact('employeeData'));
     }
 
     /**
@@ -56,10 +62,6 @@ class EmployeeController extends Controller
         ];
 
         $this->validate($request, $campos, $message);
-
-        
-        //$role = \App\Enums\UserRole::from($request->input('role'));
-        //dd($role);
         //Creo un nuveo empleado con los datos del formulario
         $employee = new Employee();
         $employee->username = $request->input('username');
@@ -89,8 +91,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         //
+        $employeeData = $this->getEmployeeData();
         $employee = Employee::findOrFail($id);
-        return view('employee.edit', compact('employee'));
+        return view('employee.edit', compact('employee','employeeData'));
     }
 
     /**

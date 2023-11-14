@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Enums\UserRole;
 
 class AuthController extends Controller
 {
@@ -28,6 +30,13 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            $employeeData = [
+                'name' => Auth::user()->name,
+                'last_name' => Auth::user()->last_name,
+                'role' => Auth::user()->role,
+                'roleDescription' => Auth::user()->role->name,
+            ];
+            Session::put('employeeData', $employeeData);
             return redirect()->route($this->redirectTo);
         }
         return redirect()->back()->withErrors("Sorry, the passed username or password is incorrect, try again!");
