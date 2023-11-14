@@ -14,6 +14,8 @@ class HomeController extends Controller
         switch ($employeeData['role']) {
             case UserRole::Admin:
                 return redirect()->route('employee.index');
+            case UserRole::WasteClassifier:
+                return redirect()->route('');
             default:
                 return redirect()->route('welcome');
         }
