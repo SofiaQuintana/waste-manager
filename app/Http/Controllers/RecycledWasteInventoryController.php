@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\RecycledWasteInventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class RecycledWasteInventoryController extends Controller
 {
@@ -12,8 +14,15 @@ class RecycledWasteInventoryController extends Controller
      */
     public function index()
     {
+        $employeeData = $this->getEmployeeData();   
         $recycledWasteInventories = RecycledWasteInventory::all();
-        return view('recycled-waste-inventory.index', compact('recycledWasteInventories'));
+        return view('recycled-waste-inventory.index', compact('recycledWasteInventories', 'employeeData'));
+    }
+
+    private function getEmployeeData()
+    {
+        $employeeData = Session::get('employeeData');
+        return $employeeData;
     }
 
     /**
@@ -21,8 +30,8 @@ class RecycledWasteInventoryController extends Controller
      */
     public function create()
     {
-        //
-        return view('recycled-waste-inventory.create');
+        $employeeData = $this->getEmployeeData();
+        return view('recycled-waste-inventory.create', compact('employeeData'));
     }
 
     /**
@@ -75,11 +84,9 @@ class RecycledWasteInventoryController extends Controller
      */
     public function show( $id)
     {
-        //
-
-
+        $employeeData = $this->getEmployeeData();
         $recycledWasteInventory = RecycledWasteInventory::findOrFail($id);
-        return view('recycled-waste-inventory.show', compact('recycledWasteInventory'));
+        return view('recycled-waste-inventory.show', compact('recycledWasteInventory', 'employeeData'));
 
     }
 

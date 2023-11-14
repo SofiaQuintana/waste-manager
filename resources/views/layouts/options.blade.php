@@ -20,15 +20,18 @@
             <span class="item">Registrar Ingreso</span>
         </a></li>
     @elseif($employeeData['roleDescription'] === 'Operator')
-        <li><a href="{{ url('operator/index') }}">
+        <li><a href="{{ url('home') }}">
             <span class="item">Lista de reciclaje</span>
         </a></li>
-        <li><a href="{{ url('employee/create') }}">
+        <li><a href="{{ url('recycled-waste-inventory/create') }}">
             <span class="item">Registrar reciclaje</span>
         </a></li>
-    @elseif($employeeData['roleDescription'] === 'Manager')
-        <li><a href="/resources//views/Reportes.php">
-            <span class="item">Reportes</span>
-        </a></li>
+    @elseif($employeeData['roleDescription'] === 'Seller')
+    <li><a href="{{ url('home') }}">
+        <span class="item">Lista de ventas</span>
+    </a></li>
+    <li><a href="{{ url('recycled-waste-inventory/create') }}">
+        <span class="item">Registrar venta</span>
+    </a></li>
     @endif  
 </ul>

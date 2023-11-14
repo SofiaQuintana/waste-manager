@@ -1,66 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+**README.md**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Sistema de Reciclaje
 
-## About Laravel
+## Justificación
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto tiene como objetivo principal la implementación de un sistema de reciclaje integral, orientado a empresas con fines comerciales. La necesidad de abordar los desafíos relacionados con la gestión de residuos es evidente, considerando las problemáticas asociadas al crecimiento poblacional, la concentración urbana desordenada y el desarrollo industrial sin planificación. Este sistema busca mejorar la eficiencia en el manejo de residuos, fomentando prácticas sostenibles y ofreciendo herramientas para la gestión interna y la toma de decisiones informada.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Configuración del Entorno de Desarrollo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Asegúrate de tener instalado lo siguiente en tu entorno de desarrollo:
 
-## Learning Laravel
+- [Composer](https://getcomposer.org/)
+- [PHP](https://www.php.net/)
+- [Node.js](https://nodejs.org/)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Pasos para Configurar el Proyecto
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clona el Repositorio:**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    git clone https://github.com/tu-usuario/waste-manager.git
+    ```
 
-## Laravel Sponsors
+2. **Instala las Dependencias de PHP:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    ```bash
+    cd waste-manager
+    composer install
+    ```
 
-### Premium Partners
+3. **Instala las Dependencias de JavaScript:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    ```bash
+    npm install
+    ```
 
-## Contributing
+4. **Configura el Archivo de Entorno:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    - Copia el archivo `.env.example` a `.env`.
+    - Configura la conexión a la base de datos y otras configuraciones según sea necesario.
 
-## Code of Conduct
+5. **Genera la Clave de Aplicación:**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    php artisan key:generate
+    ```
 
-## Security Vulnerabilities
+6. **Realiza las Migraciones de la Base de Datos:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```bash
+    php artisan migrate
+    ```
 
-## License
+7. **Inicia el Servidor de Desarrollo:**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    php artisan serve
+    ```
+
+    El servidor estará disponible en [http://localhost:8000](http://localhost:8000).
+
+## Uso del Sistema
+
+### Administrador
+
+- **Gestión de Empleados y Usuarios:**
+  - Accede al panel de administración para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de empleados y usuarios.
+  - Añade nuevos empleados y usuarios.
+  - Actualiza la información de empleados y usuarios.
+  - Elimina registros de empleados y usuarios según sea necesario.
+
+### Clasificador
+
+- **Gestión del Inventario de Basura:**
+  - Accede al módulo de clasificación para realizar operaciones CRUD sobre el inventario de basura.
+  - Registra nuevos elementos en el inventario de basura.
+  - Actualiza la información de los elementos existentes.
+  - Elimina elementos del inventario de basura.
+
+- **Registro de Ingresos de Basura:**
+  - Registra los ingresos de basura al sistema.
+  - Actualiza la información relacionada con los ingresos de basura.
+  - Elimina registros de ingresos de basura según sea necesario.
+
+### Operador
+
+- **Gestión del Inventario de Reciclaje:**
+  - Accede al módulo de operaciones para gestionar el inventario de reciclaje.
+  - Registra nuevos elementos en el inventario de reciclaje.
+  - Actualiza la información de los elementos existentes.
+  - Elimina elementos del inventario de reciclaje.
+
+### Vendedor
+
+- **Gestión de Ventas:**
+  - Accede al área de ventas para realizar operaciones CRUD sobre las transacciones de venta.
+  - Registra nuevas ventas de productos reciclados.
+  - Actualiza la información de las ventas existentes.
+  - Elimina registros de ventas según sea necesario.
+
+Estas funcionalidades proporcionan a cada tipo de usuario la capacidad de realizar acciones específicas dentro del sistema, asegurando una experiencia personalizada y eficiente de acuerdo con sus roles y responsabilidades.
+
+## Contribuciones
+
+Si encuentras errores o tienes sugerencias de mejora, no dudes en abrir un problema o enviar un pull request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
