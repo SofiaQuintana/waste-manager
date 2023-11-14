@@ -49,6 +49,8 @@ class Employee extends Authenticatable
         'role' => RoleEnum::class
     ];
 
+    public $timestamps = false;
+
     public function wasteIncomes()
     {
         return $this->hasMany(WasteIncome::class);

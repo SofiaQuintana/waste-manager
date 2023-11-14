@@ -8,6 +8,7 @@
     <title>Registro Empleados</title>
     <link rel="stylesheet" href="/resources/css/invetari.css">
     <link rel="stylesheet" href="/resources/css/registro.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 
 
 </head>`
