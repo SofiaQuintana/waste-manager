@@ -2,7 +2,7 @@ Bienvenidos al ingreso de basura
 
 
     <div class="container">
-        <h1>Waste Incomes</h1>
+        <h1>Ingresos de Residuos</h1>
 
         <table class="table">
             <thead>

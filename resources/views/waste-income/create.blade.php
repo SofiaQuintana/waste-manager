@@ -6,7 +6,7 @@ use App\Models\WasteInventory;
 
 
 <div class="container">
-        <h1>Create Waste Income</h1>
+        <h1>Ingreso de residuos</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -22,22 +22,19 @@ use App\Models\WasteInventory;
             @csrf
 
             <div class="mb-3">
-                <label for="cost" class="form-label">Cost:</label>
-                <input type="text" class="form-control" id="cost" name="cost" value="{{ old('cost') }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="amount" class="form-label">Amount:</label>
+                <label for="amount" class="form-label">Cantidad:</label>
                 <input type="text" class="form-control" id="amount" name="amount" value="{{ old('amount') }}">
             </div>
 
             <div class="mb-3">
-                <label for="date" class="form-label">Date:</label>
-                <input type="date" class="form-control" id="date" name="date" value="{{ old('date', \Carbon\Carbon::now()->toDateString()) }}">
+                <label for="cost" class="form-label">Costo</label>
+                <input type="text" class="form-control" id="cost" name="cost" value="{{ old('cost') }}">
             </div>
 
+
+
             <div class="mb-3">
-                <label for="employee_id" class="form-label">Employee:</label>
+                <label for="employee_id" class="form-label">Empleado:</label>
                 <select class="form-select" id="employee_id" name="employee_id">
                     <option value="" selected disabled>Select Employee</option>
                     @foreach ($employees as $employee)
@@ -47,7 +44,7 @@ use App\Models\WasteInventory;
             </div>
 
             <div class="mb-3">
-                <label for="waste_inventory_id" class="form-label">Waste Inventory:</label>
+                <label for="waste_inventory_id" class="form-label">Tipo de Residuo:</label>
                 <select class="form-select" id="waste_inventory_id" name="waste_inventory_id">
                     <option value="" selected disabled>Select Waste Inventory</option>
                     @foreach ($wasteInventories as $inventory)
@@ -56,6 +53,12 @@ use App\Models\WasteInventory;
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create Waste Income</button>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Fecha:</label>
+                <input type="date" class="form-control" id="date" name="date" value="{{ old('date', \Carbon\Carbon::now()->toDateString()) }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ingresar Residuo</button>
         </form>
     </div>
