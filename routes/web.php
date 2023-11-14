@@ -7,7 +7,8 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecycledWasteInventoryController;
 use App\Http\Controllers\WasteIncomeController;
 use App\Http\Controllers\WasteInventoryController;
-use App\Http\Controllers\SellController;
+use App\Http\Controllers\SellsController;
+//use App\Models\WasteInventory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/waste-inventory', WasteInventoryController::class); 
     Route::resource('/waste-income', WasteIncomeController::class);
     Route::resource('/recycled-waste-inventory', RecycledWasteInventoryController::class);
-    Route::resource('/sell', SellController::class);
+    Route::resource('/sell', SellsController::class);
     
     
 });
