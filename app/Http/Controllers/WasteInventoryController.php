@@ -42,6 +42,8 @@ class WasteInventoryController extends Controller
         ];
 
         $this->validate($request, $campos, $message);
+
+        
         $waste_inventory = new WasteInventory();
         $waste_inventory->name = $request->input('name');
         $waste_inventory->amount= $request->input('amount');
