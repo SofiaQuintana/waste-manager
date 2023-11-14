@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+
+use App\Http\Controllers\RecycledWasteInventoryController;
 use App\Http\Controllers\WasteIncomeController;
 use App\Http\Controllers\WasteInventoryController;
 use App\Models\WasteInventory;
@@ -38,5 +40,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/employee', EmployeeController::class);
     Route::resource('/waste-inventory', WasteInventoryController::class); 
     Route::resource('/waste-income', WasteIncomeController::class);
+    Route::resource('/recycled-waste-inventory', RecycledWasteInventoryController::class);
     
 });
