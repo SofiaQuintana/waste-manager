@@ -7,8 +7,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecycledWasteInventoryController;
 use App\Http\Controllers\WasteIncomeController;
 use App\Http\Controllers\WasteInventoryController;
-use App\Http\Controllers\sellsController;
-use App\Models\WasteInventory;
+use App\Http\Controllers\SellController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,12 +37,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class,'index'])->name('home');
     // employee logout
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    //Route::resource se utiliza para crear rutas con convencion RESTful para controladores
+    // employee crud routing
     Route::resource('/employee', EmployeeController::class);
     Route::resource('/waste-inventory', WasteInventoryController::class); 
     Route::resource('/waste-income', WasteIncomeController::class);
     Route::resource('/recycled-waste-inventory', RecycledWasteInventoryController::class);
-    Route::resource('/sell', sellsController::class);
+    Route::resource('/sell', SellController::class);
     
     
 });
