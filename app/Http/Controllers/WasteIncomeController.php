@@ -6,6 +6,8 @@ use App\Models\Employee;
 use App\Models\WasteIncome;
 use App\Models\WasteInventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class WasteIncomeController extends Controller
 {
@@ -14,8 +16,15 @@ class WasteIncomeController extends Controller
      */
     public function index()
     {
+        $employeeData = $this->getEmployeeData();
         $data['waste_incomes'] = WasteIncome::paginate(100);
-        return view ('waste-income.index', $data);
+        return view('waste-income.index', $data, compact('employeeData'));
+    }
+
+    private function getEmployeeData()
+    {
+        $employeeData = Session::get('employeeData');
+        return $employeeData;
     }
 
     /**
@@ -23,13 +32,13 @@ class WasteIncomeController extends Controller
      */
     public function create()
     {
-        //
+        $employeeData = $this->getEmployeeData();
         //se obtienen todos los empleados del modelo Employee
         $employees = Employee::all();
         //se obtienen todos los elementos del inventario
         $wasteInventories = WasteInventory::all();
 
-        return view('waste-income.create', compact('employees', 'wasteInventories'));
+        return view('waste-income.create', compact('employees', 'wasteInventories', 'employeeData'));
     }
 
     /**
@@ -61,30 +70,6 @@ class WasteIncomeController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
     {
         //
     }

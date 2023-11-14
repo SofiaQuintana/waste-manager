@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\WasteInventory;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class WasteInventoryController extends Controller
 {
@@ -12,8 +12,15 @@ class WasteInventoryController extends Controller
      */
     public function index()
     {
+        $employeeData = $this->getEmployeeData();
         $data['waste_inventories'] = WasteInventory::paginate(100);
-        return view('waste-inventory.index', $data);
+        return view('waste-inventory.index', $data, compact('employeeData'));
+    }
+
+    private function getEmployeeData()
+    {
+        $employeeData = Session::get('employeeData');
+        return $employeeData;
     }
 
     /**
@@ -21,9 +28,8 @@ class WasteInventoryController extends Controller
      */
     public function create()
     {
-        
-
-        return view( 'waste-inventory.create');
+        $employeeData = $this->getEmployeeData();
+        return view( 'waste-inventory.create', compact('employeeData'));
     }
 
     /**
@@ -49,7 +55,7 @@ class WasteInventoryController extends Controller
         $waste_inventory->amount= $request->input('amount');
         $waste_inventory->save();
 
-        return redirect('waste-inventory.index')-> with('message', 'Agregado Exitosamente');
+        return redirect()->route('waste-inventory.index')-> with('message', 'Agregado Exitosamente');
 
 
     }
@@ -67,8 +73,9 @@ class WasteInventoryController extends Controller
      */
     public function edit($id)
     {
+        $employeeData = $this->getEmployeeData();
         $waste_inventory = WasteInventory::findOrFail($id);
-        return view('waste-inventory.edit', compact('waste_inventory'));
+        return view('waste-inventory.edit', compact('waste_inventory', 'employeeData'));
     }
 
     /**
