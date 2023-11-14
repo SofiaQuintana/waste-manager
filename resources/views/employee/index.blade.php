@@ -37,7 +37,7 @@
                             <td>{{ $employee->last_name }}</td>
                             <td>{{ \App\Enums\UserRole::getDescription($employee->role->value) }}</td>
                             <td>
-                                <a href="{{ url('employee/'.$employee->id.'/edit') }}" class="btn btn-sm btn-warning">Editar</a>
+                                <a href="{{ url('employee/'.$employee->id.'/edit') }}" class="btn btn-sm btn-success">Editar</a>
                                 <form action="{{ route('employee.destroy', $employee->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('DELETE')

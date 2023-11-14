@@ -61,6 +61,15 @@ body{
     border-right: 2px solid rgb(5, 68, 104);
 }
 
+.btn-success {
+    background-color: #3c6382;
+}
+
+
+.btn-success:hover {
+    background-color: #5486ae;
+}
+
 .wrapper .sidebar ul li a:hover::before,
 .wrapper .sidebar ul li a.active::before{
     display: block;

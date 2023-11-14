@@ -15,7 +15,7 @@ class HomeController extends Controller
             case UserRole::Admin:
                 return redirect()->route('employee.index');
             case UserRole::WasteClassifier:
-                return redirect()->route('');
+                return redirect()->route('waste-inventory.index');
             default:
                 return redirect()->route('welcome');
         }
