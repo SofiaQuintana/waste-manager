@@ -3,7 +3,7 @@
 <head>
     <!-- ...otros encabezados... -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}"> 
 </head>
 <body>
     <!-- ...contenido... -->
@@ -30,11 +30,11 @@
                                         @foreach($sells as $sell)
                                         <tr>
                     
-                                            <td>{{ $sell->amount }}</td>
+                                            <td>{{ $sell->var }}</td>
                                             <td>{{ $sell->sell_price }}</td>
                                             <td>{{ $sell->date }}</td>
-                                            <td>{{ $sell->employee->name }}</td>
-                                            <td>{{ $sell->recycledWasteInventory->name }}</td>
+                                            <td>{{ $sell->username }}</td>
+                                            <td>{{ $sell->name }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

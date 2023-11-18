@@ -16,15 +16,15 @@ class Sells extends Model
         'sell_price',
         'date',
         'employee_id',
-        'recycled_waste_inventory_id'
+        'recycled_waste_inventories_id'
     ];
 
-    public function employee()
+    public function employees()
     {
         return $this->belongsTo(Employee::class);
     }
 
-    public function recycledWasteInventory()
+    public function recycledWasteInventories()
     {
         return $this->belongsTo(RecycledWasteInventory::class);
     }

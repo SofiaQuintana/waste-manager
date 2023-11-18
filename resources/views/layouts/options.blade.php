@@ -16,7 +16,7 @@
         <li><a href="{{ route('waste-income.index') }}">
             <span class="item">Lista de Ingresos</span>
         </a></li>
-        <li><a href="{{ url('waste-inventory.create') }}">
+        <li><a href="{{ route('waste-inventory.create') }}">
             <span class="item">Registrar Ingreso</span>
         </a></li>
     @elseif($employeeData['roleDescription'] === 'Operator')
