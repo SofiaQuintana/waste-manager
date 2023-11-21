@@ -27,7 +27,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h2 class="card-title mb-4">Registro de Residuos Reciclados</h2>
+                                <h2 class="card-title mb-4">Registro de Tipos de Reciclaje</h2>
                                 <form action="{{ route('recycled-waste-inventory.store') }}" method="post">
                                     @csrf
                             
@@ -36,8 +36,8 @@
                                         <input type="text" name="name" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="amount"  class="form-label">Cantidad:</label>
-                                        <input type="number" name="amount" class="form-control" required>
+                                        <label for="amount"  class="form-label">Cantidad por default:</label>
+                                        <input type="number" name="amount" value="0" class="form-control" disabled>
                                     </div>
                                   
                                     <div class="d-grid">

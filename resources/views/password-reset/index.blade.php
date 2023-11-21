@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <title>Inicio de Sesion</title>
+    <title>Recuperacion de Contraseña</title>
 </head>
 <body>
  <img class="wave" src="https://www.actaverytelehealth.com/static/media/wave.66362fb1.png" >
@@ -14,11 +14,16 @@
     <div class="img">
         <img src="https://www.simlevante.com/wp-content/uploads/2022/10/waste-management-edited.png" >
     </div>
+    @if (Session::has('message'))
+    <div class="alert alert-success">
+        {{ Session::get('message') }}
+    </div>
+    @endif
     <div class="login-content">
-        <form method="POST" action="{{ route('login') }}">
+        <form method="post" action="{{ route('reset') }}">
             @csrf
             <img src="https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG-Picture.png" alt="">
-            <h2 class="title">Bienvenido</h2>
+            <h4 class="title">Recuperacion de Contraseña</h4>
             <div class="input-div one">
                 <div class="i">
                     <i class="fas fa-user"></i>
@@ -33,23 +38,24 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="div">
-                    <h5>Contraseña</h5>
+                    <h5>Nueva Contraseña</h5>
                     <input type="password" id="input" class="input" name="password">
                 </div>
             </div>
-            <div class="pass">
+            <div class="input-div pass">
                 <div class="i">
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="div">
-                    <p><a class="link-opacity-75-hover" href="{{ route('password-reset')}}">Olvide mi contraseña</a></p>
+                    <h5>Confirmacion de Contraseña</h5>
+                    <input type="password" id="input" class="input" name="confirmation">
                 </div>
             </div>
            
             @if($errors->any())
                 <span class="help-block"> {{ $errors->first() }} </span>
             @endif
-            <button type="submit" class="btn">INICIAR SESION</button>
+            <button type="submit" class="btn">submit</button>
         </form>
     </div>
  </div>    

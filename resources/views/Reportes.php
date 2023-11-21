@@ -13,38 +13,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="https://c0.klipartz.com/pngpicture/286/70/gratis-png-rick-sanchez-morty-smith-graficos-de-red-portatiles-bolsillo-mortys-rick-amp-morty.png" alt="">
-                <h3> Rick Sanchez </h3>
-                <p>Empleado</p>
-            </div>
-            <ul>
-                <li><a href="#">
-                        <span class="item">Principal</span>
-                    </a></li>
-                <li><a href="/resources//views/inventario.php">
-                        <span class="item">Ver inventario</span>
-                    </a></li>
-                <li><a href="/resources//views/Reportes.php">
-                        <span class="item">Reportes</span>
-                    </a></li>
-                    <li><a href="/resources//views//RegistroEmpleado.php">
-                        <span class="item">Registras empleado</span>
-                    </a></li>
-                <li><a href="#">
-                        <span class="item">3</span>
-                    </a></li>
-            </ul>
-        </div>
-        <div class="section">
-            <div class="top_navbar">
-                <div class="hamburger">
-                    <a href="#" id="barra"><i class="fas fa-bars"></i></a>
-                    <a href="#" id="logout"><i class="fa fa-power-off"></i> Log-out</a>
-                </div>
-            </div>
-        </div>
+        @include('layouts.header')
 
         <div class="filtrado">
                 <form action="">

@@ -21,6 +21,8 @@ class HomeController extends Controller
                 return redirect()->route('recycled-waste-inventory.index');
             case UserRole::Seller:
                 return redirect()->route('sell.index');
+            case UserRole::Manager:
+                return redirect()->route('sells-report.index');
             default:
                 return redirect()->route('welcome');
         }

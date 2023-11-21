@@ -17,9 +17,8 @@ class SellsController extends Controller
     public function index()
     {
         $employeeData = $this->getEmployeeData();
-        // $sells = Sells::joinRelationship('employees.recyled_waste_inventories');
         $sells = Sells::join('employees', 'employees.id', '=', 'sells.employee_id')
-        ->join('recycled_waste_inventories', 'recycled_waste_inventories.id', '=', 'sells.recycled_waste_inventories_id')
+        ->join('recycled_waste_inventories', 'recycled_waste_inventories.id', '=', 'sells.recycled_waste_inventory_id')
         ->get(['sells.amount as var', 'sells.sell_price', 'sells.date', 'employees.*', 'recycled_waste_inventories.*']);
         return view ('sell.index', compact('sells','employeeData'));
     }
@@ -47,23 +46,20 @@ class SellsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //try{
         $data=$request->validate([
             'amount' => 'required|integer',
             'sell_price' => 'required|numeric',
-            'employee_id' => 'required',
+            'employee_id' => 'integer',
             'date' => 'required',
-            'recycled_waste_inventories_id' => 'required',
+            'recycled_waste_inventory_id' => 'required',
         ]);
+        $data['employee_id'] = $this->getEmployeeData()['id'];
 
         //obtenemos el recycledWasteInventory por medio del id
-        $recycledWasteInventory = RecycledWasteInventory::find($request->input('recycled_waste_inventories_id'));
-
-
+        $recycledWasteInventory = RecycledWasteInventory::find($request->input('recycled_waste_inventory_id'));
         //verificamos si hay suficientes elementos
 
-        if ($recycledWasteInventory->amount >= $request->input('amount')) {
+        if ($recycledWasteInventory->amount >= $data['amount']) {
             //si es valor de amount en el inventario es mayor que el de la venta procedemos a almacenar la venta
             //Almacenar la venta
             //$request instancia de Illuminate\Http\Request
@@ -78,15 +74,10 @@ class SellsController extends Controller
             //$employees = Employee::all();
             //return view('sell.create', compact('employees'));
             return redirect()->route('sell.index');
-        }else{
-            return redirect()->back()->with('error', 'Inventario Insuficiente');
+        } else {
+            return redirect()->route('sell.create')->with(['amount', 'Inventario Insuficiente!']);
         }
 
-        $employees = Employee::all();
-        //return view('sell.create', compact('employees'));
-   // }catch(\Exception $e){
-     //   return redirect()->back()->with('Error', 'Error en la operacion' .$e->getMessage());
-    //}
     }
 
     /**

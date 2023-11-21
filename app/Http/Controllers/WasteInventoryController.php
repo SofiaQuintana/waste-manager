@@ -39,12 +39,10 @@ class WasteInventoryController extends Controller
     {
         $campos=[
             'name' => 'required',
-            'amount' => 'required'
         ];
 
         $message=[
             'name.required' => 'el nombre es requerido',
-            'amount.required' => 'cantidad requerida'
         ];
 
         $this->validate($request, $campos, $message);
@@ -52,7 +50,7 @@ class WasteInventoryController extends Controller
         
         $waste_inventory = new WasteInventory();
         $waste_inventory->name = $request->input('name');
-        $waste_inventory->amount= $request->input('amount');
+        $waste_inventory->amount=0;
         $waste_inventory->save();
 
         return redirect()->route('waste-inventory.index')-> with('message', 'Agregado Exitosamente');

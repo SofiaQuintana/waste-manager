@@ -11,6 +11,42 @@ body{
     background-color: #f5f6fa;
 }
 
+.double {
+    display: block;
+    width: 65%;
+    padding-left: 15%;
+}
+
+.reports {
+    padding-left: 15%;
+}
+
+#dates {
+    display: none;
+}
+
+.report-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+
+}
+
+.special {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.special-container {
+    display: table;
+}
+
 .wrapper .sidebar{
     background: rgb(5, 68, 104);
     position: fixed;
