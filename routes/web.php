@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ConversionsController;
+use App\Http\Controllers\ConversionsReportsController;
 use App\Http\Controllers\EmployeeController;
-
+use App\Http\Controllers\IncomeReportsController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\RecycledWasteInventoryController;
 use App\Http\Controllers\WasteIncomeController;
 use App\Http\Controllers\WasteInventoryController;
 use App\Http\Controllers\SellsController;
+use App\Http\Controllers\SellsReportsController;
 //use App\Models\WasteInventory;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +29,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['guest'])->group(function () {
     // all the routes that need to be shown when the user is not logged in
     Route::get('/', [AuthController::class, 'showLoginForm'])->name('root');
-
+    Route::get('/password-reset', [PasswordResetController::class, 'index'])->name('password-reset');
+    Route::post('/reset', [PasswordResetController::class, 'update'])->name('reset');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
@@ -44,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/waste-income', WasteIncomeController::class);
     Route::resource('/recycled-waste-inventory', RecycledWasteInventoryController::class);
     Route::resource('/sell', SellsController::class);
-    
-    
+    Route::resource('/conversion', ConversionsController::class);
+    Route::resource('/sells-report', SellsReportsController::class);
+    Route::resource('/incomes-report', IncomeReportsController::class);
+    Route::resource('/conversions-report', ConversionsReportsController::class);
+
 });

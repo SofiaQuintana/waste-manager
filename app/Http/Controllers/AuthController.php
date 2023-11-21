@@ -31,6 +31,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $employeeData = [
+                'id' => Auth::user()->id,
+                'username' => Auth::user()->username,
                 'name' => Auth::user()->name,
                 'last_name' => Auth::user()->last_name,
                 'role' => Auth::user()->role,

@@ -19,22 +19,22 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th>Producto Vendido</th>
                                             <th>Cantidad</th>
                                             <th>Precio de Venta</th>
                                             <th>Fecha</th>
                                             <th>Empleado</th>
-                                            <th>Producto en Stock</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($sells as $sell)
                                         <tr>
                     
+                                            <td>{{ $sell->name }}</td>
                                             <td>{{ $sell->var }}</td>
                                             <td>{{ $sell->sell_price }}</td>
                                             <td>{{ $sell->date }}</td>
                                             <td>{{ $sell->username }}</td>
-                                            <td>{{ $sell->name }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

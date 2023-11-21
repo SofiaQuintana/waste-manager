@@ -26,7 +26,7 @@
 
                         <div class="mb-3">
                             <label for="amount" class="form-label">Cantidad:</label>
-                            <input type="number" name="amount" value="{{ isset($waste_inventory->amount) ? $waste_inventory->amount : '' }}" id="amount" class="form-control" required>
+                            <input type="number" name="amount" value="{{ isset($waste_inventory->amount) ? $waste_inventory->amount : '0' }}" id="amount" class="form-control" required>
                         </div>
 
                         <div class="d-grid">

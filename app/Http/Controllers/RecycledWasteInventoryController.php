@@ -42,39 +42,23 @@ class RecycledWasteInventoryController extends Controller
         $request->validate([
             
             'name' => 'required||unique:recycled_waste_inventories',
-            'amount' => 'required||integer',
         ]);
 
-        //RecycledWasteInventory::create($request->all());
-
-        //return redirect()->route('recycled-waste-inventory.index');
 
         $campos=[
             'name' => 'required',
-            'amount' => 'required',
         ];
 
         $message=[
             'name.required' => 'el nombre es requerido',
-            'amount.required' => 'cantidad requerida'
         ];
 
         $this->validate($request, $campos, $message);
 
-        //$existingInventory = RecycledWasteInventory::where('name', $request->input('name'))->first();
-
-        /**if($existingInventory){
-            //redirige a la vista de detalles
-            return redirect()->route('recycled-waste-inventory.show', $existingInventory->id);
-        } */
-
-
         $recycled_waste_inventory = new RecycledWasteInventory();
         $recycled_waste_inventory->name = $request->input('name');
-        $recycled_waste_inventory->amount= $request->input('amount');
+        $recycled_waste_inventory->amount=0;
         $recycled_waste_inventory->save();
-
-        //RecycledWasteInventory::create($request->all());
 
         return redirect()->route('recycled-waste-inventory.index');
     }
